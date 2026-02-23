@@ -1,0 +1,262 @@
+.pageWrapper {
+  background-color: #0A0A0A; /* Загальний темний фон сторінки */
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.highlight {
+  color: #E60000;
+}
+
+/* === ВЕРХНІЙ БЛОК (HERO) === */
+.heroSection {
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+/* .heroSection .container тут використовує загальний .container */
+.heroSection .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.heroContent {
+  flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  line-height: 1.1;
+}
+
+.heroDescription {
+  font-size: 1.1rem;
+  color: #CCCCCC;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.heroDescription b {
+    color: #fff;
+}
+
+.stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #E60000;
+}
+
+.statText {
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Картинка двигуна (Hero) */
+.heroImageWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.engineGlow {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(230, 0, 0, 0.4) 0%, rgba(230, 0, 0, 0) 70%);
+  filter: blur(50px);
+  z-index: 1;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  /* Легка анімація "дихання" */
+  animation: floatEngine 4s ease-in-out infinite;
+}
+
+@keyframes floatEngine {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* === НОВА СЕКЦІЯ ЗІ СТОРІЄЮ (ЗИГЗАГ) === */
+.storySection {
+    padding: 80px 0 120px;
+    background-color: #121212; /* Трохи світліший темний для контрасту */
+}
+
+.storyRow {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+}
+
+/* Клас для реверсу (фото зліва, текст справа) */
+.rowReverse {
+    flex-direction: row-reverse;
+}
+
+.storyText {
+    flex: 1;
+}
+
+.storyTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.storyText p {
+    font-size: 1.05rem;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+/* Обгортка для малих фото */
+.storyImageWrapper {
+    flex: 1;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    /* Ефект спортивної рамки */
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.5),
+        inset 0 0 0 2px rgba(230, 0, 0, 0.1); /* Легкий червоний внутрішній бортик */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.storyImageWrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 40px rgba(0,0,0,0.6),
+        inset 0 0 0 2px rgba(230, 0, 0, 0.3);
+}
+
+.storyImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Трохи затемнюємо фото, щоб текст краще читався, якщо він поруч */
+    filter: brightness(0.9); 
+    transition: filter 0.3s ease;
+}
+
+.storyImageWrapper:hover .storyImage {
+    filter: brightness(1);
+}
+
+/* Блок з двома фото */
+.doubleImageBlock {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.storyTitleCentered {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.storySubtitleCentered {
+    font-size: 1.1rem;
+    color: #999;
+    margin-bottom: 40px;
+}
+
+.doubleImageGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* === АДАПТАЦІЯ ПІД ТЕЛЕФОНИ === */
+@media (max-width: 992px) {
+    .heroSection .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .heroContent {
+        max-width: 100%;
+    }
+    .stats {
+        justify-content: center;
+    }
+    .heroImageWrapper {
+        width: 100%;
+        margin-top: 40px;
+    }
+    .heroImage {
+        max-width: 400px;
+    }
+
+    /* Адаптація зигзагу */
+    .storyRow, .rowReverse {
+        flex-direction: column; /* На планшетах все в колонку */
+        gap: 30px;
+        margin-bottom: 80px;
+        text-align: center;
+    }
+    /* На телефоні фото завжди зверху над текстом для кращого сприйняття */
+    .storyRow .storyImageWrapper {
+        order: -1; 
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .doubleImageGrid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSection { padding-top: 100px; }
+    .heroTitle { font-size: 2.5rem; }
+    .heroImage { max-width: 300px; }
+    
+    .storyTitle, .storyTitleCentered {
+        font-size: 1.75rem;
+    }
+    .storyRow { margin-bottom: 60px; }
+
+    /* На малих екранах два фото стають одне під одним */
+    .doubleImageGrid {
+        grid-template-columns: 1fr; 
+    }
+}

@@ -1,0 +1,66 @@
+.dividerWrapper {
+  width: 100%;
+  height: 80px; /* Висота блоку розділювача */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: transparent;
+  /* Робимо від'ємні відступи, щоб лінія ідеально лягала на стик двох різних фонів */
+  margin-top: -40px; 
+  margin-bottom: -40px;
+  z-index: 10;
+  pointer-events: none; /* Щоб клієнт випадково не "чіпляв" лінію мишкою */
+}
+
+/* Градієнтна лінія */
+.line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg, 
+    rgba(18, 18, 18, 0) 0%,       /* Повністю прозора зліва */
+    rgba(230, 0, 0, 0.8) 50%,     /* Яскраво-червона по центру */
+    rgba(18, 18, 18, 0) 100%      /* Повністю прозора справа */
+  );
+  box-shadow: 0 0 15px rgba(230, 0, 0, 0.6); /* Неонове світіння навколо лінії */
+}
+
+/* Фон під насічками */
+.iconWrapper {
+  position: relative;
+  background-color: #0A0A0A; /* Темний фон, щоб "розрізати" лінію рівно по центру */
+  padding: 0 20px;
+  z-index: 2;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Самі спортивні насічки /// */
+.slashes {
+  color: #E60000;
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-style: italic;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px rgba(230, 0, 0, 1); /* Сильне світіння самих насічок */
+  transform: skewX(-15deg); /* Спортивний нахил */
+  display: inline-block;
+}
+
+/* === АДАПТАЦІЯ ПІД ТЕЛЕФОНИ === */
+@media (max-width: 768px) {
+  .dividerWrapper {
+    height: 60px;
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+  .slashes {
+    font-size: 1.2rem;
+  }
+}

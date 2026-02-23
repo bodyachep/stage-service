@@ -1,0 +1,110 @@
+.section {
+  background-color: #FFFFFF;
+  padding: 80px 0 40px 0;
+  overflow: hidden; /* Обрізає все, що вилазить за краї сайту */
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ЗАГОЛОВОК (чітко зверху) */
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #121212;
+  line-height: 1.1;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 10; /* Завжди поверх усього */
+}
+
+.highlight {
+  color: #E60000;
+}
+
+/* БЛОК ДВИГУНА (посередині) */
+.engineWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+  margin-bottom: 60px;
+  width: 100%;
+}
+
+/* ЧЕРВОНІ БУКВИ (тільки за двигуном) */
+.bgText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28vw; /* Великі, але адаптивні */
+  font-weight: 900;
+  color: #E60000;
+  letter-spacing: -5px;
+  z-index: 1; /* Ззаду */
+  user-select: none;
+  pointer-events: none;
+  line-height: 0.8;
+}
+
+.engineImage {
+  position: relative;
+  z-index: 2; /* Спереду */
+  width: 100%;
+  max-width: 750px; /* Двигун великий, але не гігантський */
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.25));
+}
+
+/* НИЖНІЙ БЛОК */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 10;
+}
+
+.boldText {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #121212;
+  margin-bottom: 5px;
+}
+
+.slideNumber {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E60000;
+}
+
+/* АДАПТАЦІЯ ПІД ТЕЛЕФОН */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+  .bgText {
+    font-size: 35vw; /* Трохи більші на телефоні */
+  }
+  .engineImage {
+    max-width: 100%;
+  }
+  .engineWrapper {
+    min-height: 250px;
+    margin-bottom: 40px;
+  }
+  .boldText {
+    font-size: 1rem;
+  }
+}

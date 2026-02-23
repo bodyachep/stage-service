@@ -1,0 +1,104 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(18, 18, 18, 0.98); /* Глибокий чорний фон */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(230, 0, 0, 0.2); /* Легенька червона лінія знизу */
+  z-index: 100;
+  padding: 15px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* ЧЕРВОНІ СЛОВА В МЕНЮ */
+.link {
+  font-weight: 700;
+  color: #E60000; /* Червоний колір */
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link:hover {
+  color: #FFFFFF; /* При наведенні стають білими для крутого ефекту */
+  transform: translateY(-2px);
+}
+
+.ctaButton {
+  background-color: #E60000;
+  color: #FFFFFF;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  transform: skewX(-5deg); /* Спортивний нахил */
+}
+
+.ctaButton:hover {
+  background-color: #CC0000;
+  transform: skewX(-5deg) translateY(-2px);
+  box-shadow: 0 5px 15px rgba(230, 0, 0, 0.4);
+}
+
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 101;
+}
+
+/* Червоні смужки бургер-меню для телефону */
+.line, .lineOpen1, .lineOpen2, .lineOpen3 {
+  width: 25px;
+  height: 3px;
+  background-color: #E60000; 
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .burger { display: flex; }
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #121212; /* Чорний фон меню на телефоні */
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.4s ease-in-out;
+    border-bottom: 1px solid rgba(230, 0, 0, 0.2);
+  }
+  .nav.open {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .lineOpen1 { transform: rotate(45deg) translate(5px, 5px); }
+  .lineOpen2 { opacity: 0; }
+  .lineOpen3 { transform: rotate(-45deg) translate(6px, -6px); }
+}

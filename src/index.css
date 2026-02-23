@@ -1,0 +1,35 @@
+:root {
+  --bg-white: #FFFFFF;
+  --bg-light-gray: #F4F4F4;
+  --primary-red: #E60000; /* Яскравий, спортивний червоний */
+  --text-dark: #121212;
+  --text-white: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--bg-white); /* ТЕПЕР ФОН БІЛИЙ */
+  color: var(--text-dark); /* Текст тепер темний */
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Допоміжний клас для скошених блоків (набік) */
+.skewed-block {
+  transform: skewY(-3deg);
+  transform-origin: top left;
+}
+
+.skewed-content {
+  transform: skewY(3deg); /* Повертаємо контент назад, щоб текст був рівним */
+}

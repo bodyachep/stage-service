@@ -1,0 +1,198 @@
+/* Широка червона смуга фону */
+.section {
+  background-color: #DA291C;
+  padding: 100px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #111111;
+}
+
+/* --- THE BLACK PILL (ЧОРНА ПРИБОРКА) --- */
+/* --- THE BLACK PILL (ЧОРНА ПРИБОРКА) --- */
+.dashboardCluster {
+  background-color: #0A0A0A;
+  border-radius: 24px;
+  padding: 40px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  
+  /* === СПОРТИВНА РАМКА (3D Ефект) === */
+  /* 1. Ледь помітна внутрішня лінія (імітує відблиск скла/пластику) */
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  
+  /* 2. Зовнішня жорстка чорна лінія (10px) + глибока тінь */
+  box-shadow: 
+    0 0 0 10px #c15050, 
+    0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.indicatorWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 130px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.indicatorWrapper:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+.iconBox {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* --- СТИЛІ ІКОНОК (Маска для SVG-файлів) --- */
+.iconMask {
+  width: 50px;
+  height: 50px;
+  background-color: #1A1A1A; /* Вимкнена: дуже темна */
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Текст під іконкою */
+.iconLabel {
+  color: #333333; /* Тьмяний сірий для тексту */
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+/* --- ХОВЕР (ЗАГОРЯННЯ ЛАМПОЧОК) --- */
+.indicatorWrapper:hover .iconMask {
+  background-color: var(--glow-color);
+  filter: drop-shadow(0 0 10px var(--glow-color)) drop-shadow(0 0 20px var(--glow-color));
+}
+
+.indicatorWrapper:hover .iconLabel {
+  color: var(--glow-color);
+}
+
+
+/* --- МОДАЛКИ (Затемнення екрану) --- */
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.alertModal {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.alertIconBig {
+  width: 80px; height: 80px;
+  margin: 0 auto 20px;
+}
+.iconMaskBig { width: 100%; height: 100%; mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; }
+
+.alertTitle { font-size: 2rem; font-weight: 900; margin-bottom: 15px; color: #fff; }
+.alertMessage { font-size: 1.1rem; color: #ccc; line-height: 1.6; margin-bottom: 30px; }
+.alertActions { display: flex; flex-direction: column; gap: 15px; }
+
+.callButton {
+  background: #E60000; color: #fff; padding: 16px; border-radius: 10px;
+  font-weight: 800; font-size: 1.1rem; text-transform: uppercase;
+  transition: all 0.3s; text-decoration: none;
+}
+.callButton:hover { background: #CC0000; transform: translateY(-2px); }
+.cancelButton { background: transparent; color: #888; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; transition: color 0.3s; }
+.cancelButton:hover { color: #fff; }
+
+.closeBtn { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #888; font-size: 2.5rem; cursor: pointer; }
+.closeBtn:hover { color: #E60000; }
+
+.galleryModal { position: relative; max-width: 1000px; width: 100%; }
+.galleryImage { width: 100%; max-height: 85vh; object-fit: contain; border-radius: 10px; }
+.closeBtnGallery { position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 3rem; cursor: pointer; }
+
+.navBtn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.5); border: none; color: #fff; font-size: 2rem;
+  padding: 15px 20px; cursor: pointer; border-radius: 5px; transition: 0.3s;
+}
+.navBtn:hover { background: #E60000; }
+.prevBtn { left: -60px; }
+.nextBtn { right: -60px; }
+
+/* === АДАПТАЦІЯ ПІД ТЕЛЕФОНИ === */
+@media (max-width: 992px) {
+  .dashboardCluster {
+    padding: 30px 20px;
+    gap: 20px;
+    justify-content: center;
+  }
+  .indicatorWrapper {
+    width: 100px;
+  }
+  .iconBox { height: 40px; }
+  .iconMask { width: 35px; height: 35px; }
+  .iconLabel { font-size: 0.75rem; }
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 2rem; }
+  .indicatorWrapper {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+  .prevBtn { left: 10px; }
+  .nextBtn { right: 10px; }
+  .closeBtnGallery { right: 10px; top: -50px; }
+}

@@ -1,0 +1,232 @@
+.footer {
+  background-color: #050505;
+  color: #fff;
+  padding-top: 60px;
+  position: relative;
+  border-top: 2px solid #ff1a1a;
+  box-shadow: 0 -10px 30px rgba(255, 26, 26, 0.15);
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  /* 🔥 Змінив на 3 колонки: Бренд (ширше) - Контакти (вужче) - Карта (ширше) */
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 50px;
+}
+
+/* === БРЕНД ТА ЛОГОТИП === */
+.logoBox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logoImage {
+  width: 50px;
+  height: 50px;
+  background-color: #ff1a1a;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  filter: drop-shadow(0 0 10px rgba(255, 26, 26, 0.5));
+}
+
+.brandName {
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.description {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Соцмережі */
+.socials {
+  display: flex;
+  gap: 15px;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.socialIcon svg { width: 20px; height: 20px; }
+
+.socialIcon:hover {
+  background: #ff1a1a;
+  border-color: #ff1a1a;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 26, 26, 0.4);
+}
+
+/* === ЗАГАЛЬНІ СТИЛІ КОЛОНОК === */
+.colTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.colTitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #ff1a1a;
+}
+
+/* === КОНТАКТИ === */
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactList li {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.contactIcon {
+  font-size: 1.2rem;
+}
+
+.contactLink {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.contactLink:hover {
+  color: #ff1a1a;
+}
+
+.highlightText {
+  color: #ff1a1a;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* === КАРТА === */
+.mapWrapper {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #222;
+  transition: all 0.5s ease;
+}
+
+.mapFrame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.5s ease;
+}
+
+.mapWrapper:hover {
+  border-color: #ff1a1a;
+  box-shadow: 0 0 20px rgba(255, 26, 26, 0.3);
+}
+
+.mapWrapper:hover .mapFrame {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* === НИЖНЯ ПОЛОСА === */
+.bottomBar {
+  border-top: 1px solid #1a1a1a;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #030303;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.bottomLinks a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.bottomLinks a:hover {
+  color: #ff1a1a;
+}
+
+/* === АДАПТИВНІСТЬ === */
+@media (max-width: 992px) {
+  .container {
+    /* На планшеті: контакти і бренд зверху, карта знизу на всю ширину */
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 30px;
+  }
+  
+  .col:nth-child(3) {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    /* На телефоні: все в одну колонку і по центру */
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .col:nth-child(3) {
+    grid-column: 1; /* Скидаємо розтягування карти для телефону */
+  }
+  
+  .logoBox { justify-content: center; }
+  .socials { justify-content: center; }
+  .colTitle::after { left: 50%; transform: translateX(-50%); }
+  
+  .contactList li { 
+    justify-content: center; 
+    text-align: center;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}

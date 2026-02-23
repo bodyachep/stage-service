@@ -1,0 +1,207 @@
+.section {
+  background-color: #121212; /* Темний агресивний фон */
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.googleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.gLogo {
+  font-weight: 900;
+  color: #4285F4; /* Синій колір Google */
+  font-size: 1.2rem;
+  background: #fff;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.badgeText {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #E60000;
+}
+
+.ratingOverview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.bigScore {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.stars {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.reviewCount {
+  color: #999;
+  font-size: 1rem;
+}
+
+/* === СІТКА ВІДГУКІВ === */
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.reviewCard {
+  background-color: #1A1A1A;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reviewCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(230, 0, 0, 0.1);
+  border-color: rgba(230, 0, 0, 0.3);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #E60000;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.authorName {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+}
+
+.reviewDate {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.cardStars {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.reviewText {
+  color: #CCC;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* === КНОПКИ === */
+.actionRow {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.readMoreBtn, .leaveReviewBtn {
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.readMoreBtn {
+  background-color: #fff;
+  color: #121212;
+}
+
+.readMoreBtn:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.leaveReviewBtn {
+  background-color: transparent;
+  color: #E60000;
+  border: 2px solid #E60000;
+}
+
+.leaveReviewBtn:hover {
+  background-color: #E60000;
+  color: #fff;
+}
+
+/* === АДАПТАЦІЯ ПІД ТЕЛЕФОНИ === */
+@media (max-width: 992px) {
+  .reviewsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+  }
+  .actionRow {
+    flex-direction: column;
+  }
+  .readMoreBtn, .leaveReviewBtn {
+    width: 100%;
+  }
+}

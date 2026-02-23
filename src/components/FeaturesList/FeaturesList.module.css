@@ -1,0 +1,80 @@
+.section {
+  background-color: #F8F9FA;
+  padding: 80px 0; /* Повернули симетричні відступи зверху і знизу */
+  position: relative;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- СПИСОК --- */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.iconBox {
+  width: 45px;
+  height: 45px;
+  background-color: #E60000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(230, 0, 0, 0.3);
+}
+
+.iconBox svg {
+  width: 22px;
+  height: 22px;
+  color: #FFFFFF;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 3px;
+}
+
+.itemTitle {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #121212;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.itemDesc {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555555;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --- АДАПТАЦІЯ ПІД ТЕЛЕФОНИ --- */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  .itemTitle {
+    font-size: 1.2rem;
+  }
+  .itemDesc {
+    font-size: 1rem;
+  }
+}
